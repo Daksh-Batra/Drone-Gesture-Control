@@ -132,12 +132,13 @@ while True:
                 speed=0.0
                 speed_lvl="NONE"
 
+    safety = "DISENGAGED" if armed else "ENGAGED"
     cv2.putText(image,f"Predicted:  {predicted}",(10,40),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
     cv2.putText(image,f"Confidence:  {confidence:.2f}",(10,80),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
     cv2.putText(image,f"Control Mode:  {control_mode}",(10,120),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
     cv2.putText(image,f"Palm width:  {width:.3f}",(10,160),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
     cv2.putText(image,f"Speed Level:{speed_lvl} ({speed:.2f})",(10,200),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
-    cv2.putText(image,f"Armed: {armed}",(10,240),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
+    cv2.putText(image,f"Safety:{safety}",(10,240),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
 
     cv2.imshow("Live Hand Gesture Recognition", image)
     key = cv2.waitKey(1) & 0xFF
